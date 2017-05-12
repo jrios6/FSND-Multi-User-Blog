@@ -35,7 +35,7 @@ Code must conform to the [Python Style Guide](https://google.github.io/styleguid
 
 ### Setting up the project
 
-1. [Clone](https://github.com/jrios6) this repo.
+1. [Clone](https://github.com/jrios6/FSND-Multi-User-Blog.git) this repo.
 2. Create a folder called lib in the project root.
 3. Follow instructions below for installing and setting up Google App Engine with the project.
 
