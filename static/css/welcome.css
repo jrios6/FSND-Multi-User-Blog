@@ -1,0 +1,14 @@
+.welcome {
+  padding: 40px 0px 20px 0px;
+}
+
+.link {
+  margin-top: 6px;
+}
+.link a {
+  color: white;
+}
+
+.link button {
+  width: 240px;
+}

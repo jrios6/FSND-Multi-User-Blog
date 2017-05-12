@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/landing.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jaldi:400,700" rel="stylesheet">
+    <script src="/static/js/jquery-3.2.0.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <title>DRAFT</title>
+  </head>
+
+  <body>
+    <div class="top container-fluid text-center">
+      <h1 class="title">
+        <a href="/blog">
+          DRAFT
+        </a>
+      </h1>
+      <div class="description container">
+        <p>
+          Simple, minimalistic blog designed to help you focus on what you do best: drafting great works
+        </p>
+      </div>
+      <div class="login-area">
+        <p class="login-text">
+          {% if user %}
+            <div>
+              <a class="login-link" href="/blog">
+                <button type="button" class="btn btn-primary">Get Started</button>
+              </a>
+            </div>
+          {% else %}
+          <div>
+            <a class="login-link" href="/login">
+              <button type="button" class="btn btn-primary">Login</button>
+            </a>
+          </div>
+          <div>
+            <a class="login-link" href="/signup">
+              <button type="button" class="btn btn-primary">Sign Up</button>
+            </a>
+          </div>
+
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

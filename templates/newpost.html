@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block cssblock %}
+    <link href="/static/css/newpost.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+      <h1 class="post-title">
+        New Post
+      </h1>
+
+      <div>
+        <form method="post">
+          <label>
+            <div>
+              Subject
+            </div>
+            <input type="text" name="subject" />
+          </label>
+
+          <label>
+            <div>
+              Content
+            </div>
+            <textarea name="content"></textarea>
+          </label>
+
+          <div class="error">
+            {{error}}
+          </div>
+          <input class="btn btn-primary" type="submit" />
+        </form>
+      </div>
+    </div>
+{% endblock %}

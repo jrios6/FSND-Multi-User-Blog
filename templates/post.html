@@ -1,0 +1,50 @@
+<h3 class="post-subject">{{post.subject}}</h3>
+<p class="post-date">
+  {{post.created.strftime("%b %d, %Y")}}
+</p>
+<p class="post-content">
+  {{post._render_text | safe}}
+</p>
+<hr />
+<span>
+  <div class="modal fade" id="{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <article class="modal-content">
+            <div class="modal-header text-center">
+              <h3 class="modal-title">Edit Post</h3>
+            </div>
+            <form method="post">
+              <div class="modal-body">
+                <label>
+                  <div class="label-subject">
+                    Subject
+                  </div>
+                  <input class="input-subject" type="text" name="subject" value="{{post.subject}}"/>
+                </label>
+
+                <label>
+                  <div class="label-content">
+                    Content
+                  </div>
+                  <textarea class="comment-text" name="content">{{post._render_text | safe}}</textarea>
+                </label>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <input class="btn btn-success" name="edit-post" type="submit" />
+              </div>
+            </form>
+        </article>
+    </div>
+  </div>
+  {% if post.like: %}
+    <a href="/blog/unlike/{{post._id}}">
+      <span class="glyphicon glyphicon-heart red-heart"></span>
+    </a>
+  {% else: %}
+    <a href="/like/{{post._id}}">
+      <span class="glyphicon glyphicon-heart blank-heart"></span>
+    </a>
+  {% endif %}
+  <img src="/static/img/message.png" data-toggle="modal" data-target="#comment-modal"/>
+</span>

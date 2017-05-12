@@ -1,0 +1,26 @@
+<div class="post-child">
+  <a href="/blog/{{post._id}}">
+    <h3 class="post-subject">{{post.subject}}</h3>
+  </a>
+  <p class="post-date">
+    {{post.created.strftime("%b %d, %Y")}}
+  </p>
+  <p class="post-content">
+    {{post._render_text | safe}}
+  </p>
+  <hr />
+  <span>
+    {% if post.like: %}
+      <a href="/blog/unlike/{{post._id}}">
+        <span class="glyphicon glyphicon-heart red-heart"></span>
+      </a>
+    {% else: %}
+      <a href="/like/{{post._id}}">
+        <span class="glyphicon glyphicon-heart blank-heart"></span>
+      </a>
+    {% endif %}
+    <a href="/blog/{{post._id}}?commenting=true">
+      <img src="/static/img/message.png" />
+    </a>
+  </span>
+</div>

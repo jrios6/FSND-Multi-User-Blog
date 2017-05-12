@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block cssblock %}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="/static/css/blog.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="error-container container">
+        <h3 class="error-message">{{error}}</h3>
+      </div>
+
+      <div class="post-parent container">
+        {% for post in blog_posts %}
+          {{post.render_front() | safe}}
+        {% endfor %}
+      </div>
+    </div>
+
+{% endblock %}

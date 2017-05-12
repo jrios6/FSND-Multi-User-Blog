@@ -1,0 +1,33 @@
+.login {
+  font-size: 48px;
+  margin-top: 140px;
+  margin-bottom: 60px;
+}
+
+input[type=text], input[type=password] {
+  margin-top: 4px;
+  width: 240px;
+  font-size: 17px;
+  padding: 2px;
+}
+
+table {
+  margin: auto;
+}
+
+.label {
+  font-size: 18px;
+  padding-right: 12px;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px;
+  width: 210px;
+  margin-top: 40px;
+  background-color: #2b2828;
+}
+
+.btn:hover {
+  background-color: #4e4e4e;
+}

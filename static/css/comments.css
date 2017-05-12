@@ -1,0 +1,32 @@
+.comment-container {
+  margin-top: 40px;
+}
+
+.comment-parent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.comment-author {
+  font-size: 17px;
+}
+
+.comment-date {
+  margin-top: -8px;
+  font-size: 13px;
+}
+
+.comment-content {
+  font-size: 18px;
+}
+
+.edit-buttons {
+  margin-top: 8px;
+  float: right;
+}
+
+.edit-buttons a {
+  font-size: 15px;
+}

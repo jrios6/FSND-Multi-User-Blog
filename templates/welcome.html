@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block cssblock %}
+    <link href="/static/css/welcome.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+      <h1 class="welcome">Welcome, {{username}}</h1>
+      <div class="link">
+        <a href="/blog">
+          <button class="btn btn-primary">
+            Read the blogs
+          </button>
+        </a>
+      </div>
+      <div class="link">
+        <a href="/blog/newpost">
+          <button class="btn btn-primary">
+            Write your first post
+          </button>
+        </a>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+.post-title {
+  font-size: 48px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+form div {
+  margin-top: 15px;
+}
+input[type=text] {
+  margin-top: 8px;
+  width: 600px;
+  font-size: 17px;
+  padding: 8px;
+}
+
+textarea {
+  margin-top: 8px;
+  width: 600px;
+  height: 300px;
+  font-size: 17px;
+  padding: 8px;
+}
+
+label div {
+  display: block;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px;
+  width: 210px;
+  margin-top: 10px;
+  background-color: #2b2828;
+}
+
+.btn:hover {
+  background-color: #4e4e4e;
+}

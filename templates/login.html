@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block cssblock %}
+    <link href="/static/css/login.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+  <h1 class="login">
+    Login
+  </h1>
+
+  <div>
+    <form method="post">
+      <table>
+        <tr>
+          <td class="label">
+            Username
+          </td>
+          <td>
+            <input type="text" name = "username" value={{username}}>{{usererror}}
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">
+            Password
+          </td>
+          <td>
+            <input type="password" name = "password">{{passerror}}
+          </td>
+        </tr>
+      </table>
+      <br/>
+      <input class="btn btn-primary" type="submit" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}
