@@ -18,7 +18,7 @@
             Username
           </td>
           <td>
-            <input type="text" name = "username" value={{username}}>{{usererror}}
+            <input type="text" name = "username" value={{username}}>
           </td>
         </tr>
 
@@ -27,7 +27,19 @@
             Password
           </td>
           <td>
-            <input type="password" name = "password">{{passerror}}
+            <input type="password" name = "password">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="error">
+            {{passerror}}
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="error">
+            {{usererror}}
           </td>
         </tr>
       </table>

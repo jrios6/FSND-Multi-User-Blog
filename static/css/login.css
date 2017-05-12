@@ -31,3 +31,9 @@ table {
 .btn:hover {
   background-color: #4e4e4e;
 }
+
+.error {
+  color: #f70404;
+  font-size: 17px;
+  padding-top: 4px;
+}
