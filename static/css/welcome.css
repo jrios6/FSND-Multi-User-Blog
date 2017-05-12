@@ -1,14 +1,17 @@
 .welcome {
-  padding: 40px 0px 20px 0px;
+  font-size: 48px;
+  margin-top: 140px;
+  margin-bottom: 60px;
 }
 
-.link {
-  margin-top: 6px;
-}
-.link a {
-  color: white;
+.btn {
+  font-size: 18px;
+  padding: 12px;
+  width: 210px;
+  margin-bottom: 10px;
+  background-color: #2b2828;
 }
 
-.link button {
-  width: 240px;
+.btn:hover {
+  background-color: #4e4e4e;
 }
