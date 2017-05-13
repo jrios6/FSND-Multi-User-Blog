@@ -281,98 +281,97 @@ class BlogPostHandler(Handler):
 
 class CommentDeleteHandler(Handler):
     def get(self, post_id):
-        uid = self.get_user_id()
-        comment = Comment.get(self.request.get("key"))
+        if not self.user:
+            return self.redirect('/login')
 
-        if len(uid) > 0:
-            if comment.commenter_id == uid:
+        comment = Comment.get(self.request.get("key"))
+        if comment is not None:
+            if comment.commenter_id == self.get_user_id():
                 comment.delete()
                 self.redirect("/blog/"+post_id)
-
         else:
-            self.redirect("/login")
-
+            self.error(404)
 
 class PostDeleteHandler(Handler):
     def get(self, post_id):
-        uid = self.get_user_id()
+        if not self.user:
+            return self.redirect('/login')
+
         blog_post = BlogPost.get_by_id(int(post_id))
-        if len(uid) > 0:
-            if blog_post.author == uid:
+        if blog_post is not None:
+            if blog_post.author == self.get_user_id():
                 blog_post.delete()
                 self.redirect("/blog")
                 return
 
-            error = "Error: You are not allowed to delete this post!"
-            self.redirect("/blog/"+post_id+"?error="+error)
-
-        else:
-            self.redirect("/login")
+        error = "Error: You are not allowed to delete this post!"
+        self.redirect("/blog/"+post_id+"?error="+error)    
 
 
 class LikesPHandler(Handler):
     """Saves Like and redirects user to blog post."""
     def get(self, post_id):
+        if not self.user:
+            return self.redirect('/login')
+
         uid = self.get_user_id()
-        if len(uid) > 0:
-            if Likes.get_like(post_id, uid):
-                error = "Error: You can only like a post once!"
-                self.redirect("/blog/"+post_id+"?error="+error)
-            else:
-                like = Likes.save(post_id, uid)
-                if like:
-                    like.put()
-                    self.redirect("/blog/"+post_id)
-                else:
-                    error = "Error: You cannot like your own post!"
-                    self.redirect("/blog/"+post_id+"?error="+error)
+        if Likes.get_like(post_id, uid):
+            error = "Error: You can only like a post once!"
+            self.redirect("/blog/"+post_id+"?error="+error)
         else:
-            self.redirect("/login")
+            like = Likes.save(post_id, uid)
+            if like:
+                like.put()
+                self.redirect("/blog/"+post_id)
+            else:
+                error = "Error: You cannot like your own post!"
+                self.redirect("/blog/"+post_id+"?error="+error)
+
 
 
 class LikesBHandler(Handler):
     """Saves Like and redirects user to blog."""
     def get(self, post_id):
-        uid = self.get_user_id()
-        if len(uid) > 0:
-            if Likes.get_like(post_id, uid):
-                error = "Error: You can only like a post once!"
-                self.redirect("/blog?error="+error)
+        if not self.user:
+            return self.redirect('/login')
 
-            else:
-                like = Likes.save(post_id, uid)
-                if like:
-                    like.put()
-                    self.redirect("/blog")
-                else:
-                    error = "Error: You cannot like your own post!"
-                    self.redirect("/blog?error="+error)
+        uid = self.get_user_id()
+        if Likes.get_like(post_id, uid):
+            error = "Error: You can only like a post once!"
+            self.redirect("/blog?error="+error)
+
         else:
-            self.redirect("/login")
+            like = Likes.save(post_id, uid)
+            if like:
+                like.put()
+                self.redirect("/blog")
+            else:
+                error = "Error: You cannot like your own post!"
+                self.redirect("/blog?error="+error)
 
 
 class UnlikeBHandler(Handler):
     def get(self, post_id):
+        if not self.user:
+            return self.redirect('/login')
+
         uid = self.get_user_id()
-        if len(uid) > 0:
-            like = Likes.get_like(post_id, uid)
-            if like:
-                like.delete()
-            self.redirect("/blog/"+post_id)
-        else:
-            self.redirect("/login")
+        like = Likes.get_like(post_id, uid)
+        if like:
+            like.delete()
+        self.redirect("/blog/"+post_id)
 
 
 class UnlikePHandler(Handler):
     def get(self, post_id):
+        if not self.user:
+            return self.redirect('/login')
+
         uid = self.get_user_id()
-        if len(uid) > 0:
-            like = Likes.get_like(post_id, uid)
-            if like:
-                like.delete()
-            self.redirect("/blog")
-        else:
-            self.redirect("/login")
+        like = Likes.get_like(post_id, uid)
+        if like:
+            like.delete()
+        self.redirect("/blog")
 
 
 class MainPage(Handler):
