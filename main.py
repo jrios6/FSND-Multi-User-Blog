@@ -292,6 +292,7 @@ class CommentDeleteHandler(Handler):
         else:
             self.error(404)
 
+
 class PostDeleteHandler(Handler):
     def get(self, post_id):
         if not self.user:
@@ -305,7 +306,7 @@ class PostDeleteHandler(Handler):
                 return
 
         error = "Error: You are not allowed to delete this post!"
-        self.redirect("/blog/"+post_id+"?error="+error)    
+        self.redirect("/blog/"+post_id+"?error="+error)
 
 
 class LikesPHandler(Handler):
@@ -326,7 +327,6 @@ class LikesPHandler(Handler):
             else:
                 error = "Error: You cannot like your own post!"
                 self.redirect("/blog/"+post_id+"?error="+error)
-
 
 
 class LikesBHandler(Handler):
