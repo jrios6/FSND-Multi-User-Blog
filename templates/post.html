@@ -9,32 +9,32 @@
 <span>
   <div class="modal fade" id="{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <article class="modal-content">
-            <div class="modal-header text-center">
-              <h3 class="modal-title">Edit Post</h3>
-            </div>
-            <form method="post">
-              <div class="modal-body">
-                <label>
-                  <div class="label-subject">
-                    Subject
-                  </div>
-                  <input class="input-subject" type="text" name="subject" value="{{post.subject}}"/>
-                </label>
+      <article class="modal-content">
+        <div class="modal-header text-center">
+          <h3 class="modal-title">Edit Post</h3>
+        </div>
+        <form method="post">
+          <div class="modal-body">
+            <label>
+              <div class="label-subject">
+                Subject
+              </div>
+              <input class="input-subject" type="text" name="subject" value="{{post.subject}}"/>
+            </label>
 
-                <label>
-                  <div class="label-content">
-                    Content
-                  </div>
-                  <textarea class="comment-text" name="content">{{post._render_text | safe}}</textarea>
-                </label>
+            <label>
+              <div class="label-content">
+                Content
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                <input class="btn btn-success" name="edit-post" type="submit" />
-              </div>
-            </form>
-        </article>
+              <textarea class="comment-text" name="content">{{post._render_text | safe}}</textarea>
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-success" name="edit-post" type="submit" />
+          </div>
+        </form>
+      </article>
     </div>
   </div>
   {% if post.like: %}

@@ -32,21 +32,21 @@
               </div>
               <div class="modal fade" id="{{comment.key()}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <article class="modal-content">
-                        <div class="modal-header text-center">
-                          <h3 class="modal-title">Edit Comment</h3>
-                        </div>
-                        <form method="post">
-                          <div class="modal-body">
-                            <input type="hidden" name="comment-key" value="{{comment.key()}}" />
-                            <textarea class="comment-text" name="content">{{comment.content}}</textarea>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                            <input class="btn btn-success" name="edit-comment" type="submit" />
-                          </div>
-                        </form>
-                    </article>
+                  <article class="modal-content">
+                    <div class="modal-header text-center">
+                      <h3 class="modal-title">Edit Comment</h3>
+                    </div>
+                    <form method="post">
+                      <div class="modal-body">
+                        <input type="hidden" name="comment-key" value="{{comment.key()}}" />
+                        <textarea class="comment-text" name="content">{{comment.content}}</textarea>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <input class="btn btn-success" name="edit-comment" type="submit" />
+                      </div>
+                    </form>
+                  </article>
                 </div>
               </div>
             {% endif %}
@@ -70,23 +70,23 @@
 
   <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <article class="modal-content">
-            <div class="modal-header text-center">
-              <h3 class="modal-title">Comment</h3>
+      <article class="modal-content">
+        <div class="modal-header text-center">
+          <h3 class="modal-title">Comment</h3>
+        </div>
+        <form method="post">
+          <div class="modal-body">
+            <textarea class="comment-text" name="content"></textarea>
+            <div class="error">
+              {{error}}
             </div>
-            <form method="post">
-              <div class="modal-body">
-                <textarea class="comment-text" name="content"></textarea>
-                <div class="error">
-                  {{error}}
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                <input class="btn btn-success" name="new-comment" type="submit" />
-              </div>
-            </form>
-        </article>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <input class="btn btn-success" name="new-comment" type="submit" />
+          </div>
+        </form>
+      </article>
     </div>
   </div>
 
