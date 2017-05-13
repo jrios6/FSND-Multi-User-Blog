@@ -12,7 +12,7 @@
       <h3 class="error-message">{{error}}</h3>
     </div>
     {{post.render_post() | safe}}
-    {% if post.author == user_id %}
+    {% if post.author == user.key().id() | string %}
     <div class="post-edit-buttons">
       <a data-toggle="modal" data-target="#{{post._id}}">Edit</a>
       |
@@ -24,7 +24,7 @@
       <div class="comment-parent">
         {% for comment in comments %}
           <div class="comment-item">
-            {% if comment.commenter_id == user_id %}
+            {% if comment.commenter_id == user.key().id() | string %}
               <div class="edit-buttons">
                 <a data-toggle="modal" data-target="#{{comment.key()}}">Edit</a>
                 |
