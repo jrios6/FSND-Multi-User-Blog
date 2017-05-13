@@ -182,7 +182,7 @@ class NewPost(Handler):
         content = self.request.get("content")
         uid = self.get_user_id()
 
-        if len(uid) > 0:
+        if self.user:
             if subject and content:
                 new_post = BlogPost(subject=subject, content=content,
                                     author=uid)
